@@ -1,7 +1,7 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=8879795&assignment_repo_type=AssignmentRepo)
 # Movie Recommender
  
- > Authors: \<[Shan Santhakumar](https://github.com/ssant096)\> <[Tim Cheung](https://github.com/tcheu024)\> \<[Hirsch Chheda](https://github.com/Hirschheda)\> \<[Yash Singhal](https://github.com/ysinghal03)\>
+ \<[Shan Santhakumar](https://github.com/ssant096)\> <[Tim Cheung](https://github.com/tcheu024)\> \<[Hirsch Chheda](https://github.com/Hirschheda)\> \<[Yash Singhal](https://github.com/ysinghal03)\>
 
 ## Project Description
  > Our team is proposing to make a Movie Recommender. We choose this because we felt that a movie recommender involves elements we have learned about in our previous classes such as sorting algorithms and incorporating multiple classes that must be able to work together. We plan to use C++ as the language for the project and VSCODE to code our project. The input of our project will be movie genres, movie titles, and a method of sorting (by release date or rating for example). The output will be a collection of movies with ratings and the release year. Our project will allow users to search for movies based on genre and also display a list of recommended similar movies based off of a user entered movie title. Lastly, all of the displayed movies will have the option of being sorted by either rating or release date. 

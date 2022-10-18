@@ -1,7 +1,7 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=8879795&assignment_repo_type=AssignmentRepo)
 # Movie Recommender
  
- > Authors: \<[Shan Santhakumar](https://github.com/ssant096)\> <[Tim Cheung](https://github.com/tcheu024)\> \<[Hirsch Chheda](https://github.com/Hirschheda)\> \<[Yash Singhal](https://github.com/ysinghal03)\>
+ [Shan Santhakumar](https://github.com/ssant096), [Tim Cheung](https://github.com/tcheu024), [Hirsch Chheda](https://github.com/Hirschheda), [Yash Singhal](https://github.com/ysinghal03)
 
 ## Project Description
  > Our team is proposing to make a Movie Recommender. We chooe this as our project because we felt that a movie recommender involves elements we have learned about in our previous classes such as sorting algorithms. This particular project will also allow us to create and incorporate multiple classes that we can use together to give the user the best possible prediction of what movies they like to watch. We plan to use C++ as the primary language for the project and our choice of IDE is going to be VSCODE. This is because we also plan on using Valgrind as our primary debugging tool to fix memory leaks and other errors that make occur during production.

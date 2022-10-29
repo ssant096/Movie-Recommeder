@@ -38,6 +38,7 @@ Our project will allow users to search for movies based on genre and also displa
    +getRating() int
    +getTitle() string
    +getGenre() string
+   +getReleaseDate() int
  }
  class MoviesList{
    -ListOfMovies : Movies**

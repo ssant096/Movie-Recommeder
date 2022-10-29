@@ -34,6 +34,7 @@ Our project will allow users to search for movies based on genre and also displa
    -title : string
    -genre : string
    -rating : int
+   -release date : int
    +getRating() int
    +getTitle() string
    +getGenre() string

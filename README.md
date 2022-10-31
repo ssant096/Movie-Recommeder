@@ -50,10 +50,10 @@ Our project will allow users to search for movies based on genre and also displa
    +printListOfMovies() void
  }
  class Filter{
-   +sortByViews() : void
-   +sortByGenre(string movieGenre) : void
-   +sortByYear() : void
-   +findSimilarMovies() : void
+   +sortByViews() void
+   +sortByGenre(string movieGenre) void
+   +sortByYear() void
+   +findSimilarMovies() void
  }
  
  ```

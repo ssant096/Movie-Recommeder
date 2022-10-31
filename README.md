@@ -29,7 +29,8 @@ Our project will allow users to search for movies based on genre and also displa
  
 ```mermaid
  classDiagram
- 
+ MoviesList o-- Movies
+ MoviesList *-- Filter
  class Movies{
    -title : string
    -genre : string
@@ -47,6 +48,12 @@ Our project will allow users to search for movies based on genre and also displa
    -numMovies : int
    -listCapacity : int
    +printListOfMovies() void
+ }
+ class Filter{
+   +sortByViews() : void
+   +sortByGenre(string movieGenre) : void
+   +sortByYear() : void
+   +findSimilarMovies() : void
  }
  
  ```

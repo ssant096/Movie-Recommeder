@@ -8,12 +8,12 @@
  
  We plan to use C++ as the primary language for the project and our choice of IDE is going to be VSCODE. This is because we also plan on using Valgrind as our primary debugging tool to fix memory leaks and other errors that may occur during production.
 
-The input of our project will be movie genres, movie titles, and a method of sorting (by release date or rating for example). The output will be a collection of movies with ratings and the release year. 
+ The input of our project will be movie genres, movie titles, and a method of sorting (by release date or rating for example). The output will be a collection of movies with ratings and the release year. 
 
-Our project will allow users to search for movies based on genre and also display a list of recommended similar movies based off of a user entered movie title. Lastly, all of the displayed movies will have the option of being sorted by either rating or release date. 
+ Our project will allow users to search for movies based on genre and also display a list of recommended similar movies based off of a user entered movie title. Lastly, all of the displayed movies will have the option of being sorted by either rating or release date. 
 
 ## Class Diagram
- > For our project, we will have 3 classes MoviesList, Movies, and Filter. The Movies class has an aggregational relationship with MoviesList while the Filter class has a compositional relation. The MoviesList class contains a list of movies along with the total capacity and how many movies it currently holds. The Movies class is used to describe each specific movie with items including its title, genre, rating, release date, and views. Finally, the Filter class is used to sort the movies into specific categories such as views, genre, year, and give recommendations. 
+ For our project, we will have 3 classes MoviesList, Movies, and Filter. The Movies class has an aggregational relationship with MoviesList while the Filter class has a compositional relation. The MoviesList class contains a list of movies along with the total capacity and how many movies it currently holds. The Movies class is used to describe each specific movie with items including its title, genre, rating, release date, and views. Finally, the Filter class is used to sort the movies into specific categories such as views, genre, year, and give recommendations. 
  
  
 ```mermaid

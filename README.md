@@ -20,6 +20,19 @@
  classDiagram
  MoviesList o-- Movies
  MoviesList *-- Filter
+ MoviesList *-- Driver
+ MoviesList o-- Database
+ Driver o-- Database
+ 
+ class Driver{
+   +displayMenu() void
+ }
+ class Database{
+   -movieDatabaseMovieName: string
+   -MovieDatabaseMovieRating : double
+   -MovieDatabaseMovieViews : int
+   -MovieDatabaseMovieReleaseDate : int
+ }
  class Movies{
    -title : string
    -genre : string

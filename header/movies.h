@@ -1,7 +1,7 @@
 #ifndef __MOVIES_H__
 #define __MOVIES_H__
 
-class Person{
+class Movies{
     private:
 
         string title; //title of the movie
@@ -11,6 +11,7 @@ class Person{
         int views; // amount of viewership
 
 public:
+        Movies(string title, int rating, string genre, int releaseDate, int views); 
         int getRating();
         string getTitle();
         string Genre();

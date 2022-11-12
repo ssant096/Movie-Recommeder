@@ -13,49 +13,68 @@
  Our project will allow users to search for movies based on genre and also display a list of recommended similar movies based off of a user entered movie title. Lastly, all of the displayed movies will have the option of being sorted by either rating or release date. 
 
 ## Class Diagram
- For our project, we will have 3 classes MoviesList, Movies, and Filter. The Movies class has an aggregational relationship with MoviesList while the Filter class has a compositional relation. The MoviesList class contains a list of movies along with the total capacity and how many movies it currently holds. The Movies class is used to describe each specific movie with items including its title, genre, rating, release date, and views. Finally, the Filter class is used to sort the movies into specific categories such as views, genre, year, and give recommendations. 
+ For our project, we will have 5 classes: MoviesList, Movies, Filter, Driver, and Database. The MoviesList class will hold the main list of movies that will be output to the user. The Filter class will sort a list of movies input into it and return a sorted list of movies. The Movies class will will be used to construct each indiviual movie with all needed variables. The Database class will read data from a csv file and create a list of movies with that data, while also being capable of adding, removing, and saving movies from that list. Finally, the Driver class will handle all output to the user. The MoviesList class will construct a list of movies using data from the Database class and then use the Filter class to filter the list of Movies to suit the user's preferences based off of the user inputs, given the options output by the Driver class. The user will be able to choose a movie genre or enter a movie title to find similar movies and can sort the displayed movies by either release date, views, or rating. The user will do all of this with the guidance of output displayed by the Driver class.
  
  
 ```mermaid
  classDiagram
  MoviesList o-- Movies
  MoviesList *-- Filter
- MoviesList *-- Driver
+ Driver o-- MoviesList
  MoviesList o-- Database
  Driver o-- Database
+ Database o-- Movies
  
  class Driver{
-   +displayMenu() void
+   -movieDatabase : Database
+   -listToOutput : MoivesList
+   +displayMainMenu() void
+   +displayMovieTitleInputMenu() void
+   +displayGenreInputMenu() void
+   +displayAddMovieMenu() void
  }
  class Database{
    -movieDatabaseMovieName: string
-   -MovieDatabaseMovieRating : double
-   -MovieDatabaseMovieViews : int
-   -MovieDatabaseMovieReleaseDate : int
+   -movieDatabaseMovieRating : double
+   -movieDatabaseMovieViews : int
+   -movieDatabaseMovieReleaseDate : int
+   -databaseList : Movies**
+   +loadMovies() void
+   +saveMoviesList() void
+   +addMovieToList(MoviesList currentList, string title, double rating, int views, int releaseDate, string genre) void
+   +deleteMovieFromList(Movies movieToDelete) void
+   +returnDatabaseList() : Movies(**)
  }
  class Movies{
    -title : string
    -genre : string
-   -rating : int
+   -rating : double
    -releaseDate : int
    -views : int
-   +getRating() int
+   +getRating() double
    +getTitle() string
    +getGenre() string
    +getReleaseDate() int
    +getViews() int
+   +Movies(string title, , double rating, int views, int releaseDate, string genre) 
  }
  class MoviesList{
-   -ListOfMovies : Movies**
+   -listOfMovies : Movies**
    -numMovies : int
    -listCapacity : int
+   -filterList : Filter
+   -movieDatabase : Database
    +printListOfMovies() void
+   +MoviesList(string filterType);
+   +MoviesList(Database fullDatabase);
  }
  class Filter{
-   +sortByViews() void
-   +sortByGenre(string movieGenre) void
-   +sortByYear() void
-   +findSimilarMovies() void
+   -listToModify : Movies**
+   +sortByViews(Movies** currentList) : Movies(**)
+   +sortByGenre(Movies* currentList, string movieGenre) : Movies(**)
+   +sortByYear(Movies* currentList) : Movies(**)
+   +findSimilarMovies(Movies* currentList) : Movies(**)
+   +Filter(Movies**)
  }
  
  ```

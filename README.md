@@ -71,9 +71,9 @@
  }
  class Filter{
    -listToModify : Movies**
-   +sortByViews(Movies** currentList) : Movies(**)
-   +sortByGenre(Movies* currentList, string movieGenre) : Movies(**)
-   +sortByYear(Movies* currentList) : Movies(**)
+   +sortByViews() : Movies(**)
+   +sortByGenre(string movieGenre) : Movies(**)
+   +sortByYear() : Movies(**)
    +findSimilarMovies(string movieTitle) : Movies(**)
    +Filter(Movies** listOfMovies)
  }

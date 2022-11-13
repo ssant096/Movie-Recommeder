@@ -23,6 +23,7 @@
  Driver o-- MoviesList
  MoviesList o-- Database
  Driver o-- Database
+ Filter o-- Movies
  Database o-- Movies
  
  class Driver{

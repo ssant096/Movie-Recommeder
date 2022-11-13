@@ -43,7 +43,7 @@
    +loadMovies() void
    +saveMoviesList() void
    +addMovieToList(MoviesList currentList, string title, double rating, int views, int releaseDate, string genre) void
-   +deleteMovieFromList(Movies movieToDelete) void
+   +deleteMovieFromList(Movies* movieToDelete) void
    +returnDatabaseList() : Movies(**)
  }
  class Movies{
@@ -67,7 +67,7 @@
    -movieDatabase : Database
    +printListOfMovies() void
    +MoviesList(string filterType);
-   +MoviesList(Database fullDatabase);
+   +MoviesList(Database* fullDatabase);
  }
  class Filter{
    -listToModify : Movies**
@@ -75,7 +75,7 @@
    +sortByGenre(Movies* currentList, string movieGenre) : Movies(**)
    +sortByYear(Movies* currentList) : Movies(**)
    +findSimilarMovies(Movies* currentList) : Movies(**)
-   +Filter(Movies**)
+   +Filter(Movies** listOfMovies)
  }
  
  ```

@@ -2,24 +2,32 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <vector>
 
 using namespace std;
 
-void sortByViews(){
-
-}
-
-void sortByGenre(string movieGenre)(){
-
-}
-
-void sortByYear(){
-    int newMoviesList [] = {1, 2, 3}; //dummy template
-    sort(newMoveisList[0],newMoviesList[newMoviesList.size()-1], greater())
+Filter::Filter(){
     
 }
 
-int findSimilarMovies(){
+Filter::Filter(Movies** listOfMovies){
 
 }
 
+Movies** Filter::sortByViews(){
+
+}
+
+Movies** Filter::sortByGenre(string movieGenre)(){
+
+}
+
+Movies** Filter::sortByYear(){
+    vector <int> newMoviesList = {1, 2, 3}; //dummy template
+    sort(newMoveisList.begin(),newMoviesList.end(), greater<int>());
+    
+}
+
+Movies** Filter::findSimilarMovies(string movieTitle){
+
+}

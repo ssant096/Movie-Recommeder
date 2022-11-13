@@ -4,22 +4,37 @@
 
 using namespace std;
 
-int getRating(){
+Movies::Movies(string title_, int rating_, string genre_, int releaseDate_, int views_){
+    title = title_;
+    rating = rating_;
+    genre= genre_;
+    releaseDate = releaseDate_;
+    views= views_;
 
 }
 
-string getTitle(){
+double Movies::getRating(){
+    return this->rating;
 
 }
 
-string Genre(){
+string Movies::getTitle(){
+    return this->title;
+
 
 }
 
-int getReleaseDate(){
+string Movies::Genre(){
+    return this->genre;
 
 }
 
-int getViews(){
+int Movies::getReleaseDate(){
+    return this->releaseDate;
+
+}
+
+int Movies::getViews(){
+    return this->views;
 
 }

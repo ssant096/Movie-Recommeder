@@ -74,7 +74,7 @@
    +sortByViews(Movies** currentList) : Movies(**)
    +sortByGenre(Movies* currentList, string movieGenre) : Movies(**)
    +sortByYear(Movies* currentList) : Movies(**)
-   +findSimilarMovies(Movies* currentList) : Movies(**)
+   +findSimilarMovies(string movieTitle) : Movies(**)
    +Filter(Movies** listOfMovies)
  }
  

@@ -10,24 +10,24 @@ Filter::Filter(){
     
 }
 
-Filter::Filter(Movies** listOfMovies){
+Filter::Filter(vector<Movies> listOfMovies){
 
 }
 
-Movies** Filter::sortByViews(){
+vector<Movies> Filter::sortByLength(){
 
 }
 
-Movies** Filter::sortByGenre(string movieGenre)(){
+vector<Movies> Filter::sortByGenre(string movieGenre)(){
 
 }
 
-Movies** Filter::sortByYear(){
+vector<Movies> Filter::sortByYear(){
     vector <int> newMoviesList = {1, 2, 3}; //dummy template
     sort(newMoveisList.begin(),newMoviesList.end(), greater<int>());
     
 }
 
-Movies** Filter::findSimilarMovies(string movieTitle){
+vector<Movies> Filter::findSimilarMovies(string movieTitle){
 
 }

@@ -57,7 +57,7 @@
    +getGenre() string
    +getReleaseDate() int
    +getLength() int
-   +Movies(string title, , double rating, int length, int releaseDate, string genre) 
+   +Movies(string title, double rating, int length, int releaseDate, string genre) 
  }
  class MoviesList{
    -listOfMovies : vector(Movies)
@@ -76,8 +76,8 @@
    +findSimilarMovies(string movieTitle) : vector(Movies)
    +Filter(vector(Movies) listOfMovies)
  }
+``` 
 
- 
  > ## Final deliverable
  > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
  > Before the demo, you should do the following:

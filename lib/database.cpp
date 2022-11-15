@@ -31,4 +31,4 @@ void Database::initDatabase(vector <MovieRecord>& movies){
         movies.push_back(movie);
         line = "";
     }
-}   
+}  

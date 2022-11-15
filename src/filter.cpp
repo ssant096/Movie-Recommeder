@@ -7,8 +7,8 @@
 
 using namespace std;
 
-vector<MoviesList> Filter::sortByGenre(string movieGenre, vector<MoviesList> movieList )(){
-    vector <MoviesList> genreMoviesList = {}
+vector<MoviesList> Filter::sortByGenre(string movieGenre, vector<MoviesList> movieList)(){
+    vector <MoviesList> genreMoviesList = {};
     int i = 0;
     while(movieList.at(i) != NULL){
         if(movieList.at(i).Genre == movieGenre){

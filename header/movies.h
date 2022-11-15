@@ -11,12 +11,12 @@ class Movies{
         int views; // amount of viewership
 
 public:
-        Movies(string title, int rating, string genre, int releaseDate, int views); 
+        Movies(string title, int rating, string genre, int releaseDate, int length); 
         double getRating();
         string getTitle();
         string Genre();
         int getReleaseDate();
-        int getViews();
+        int getLength();
 
 }
 

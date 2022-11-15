@@ -4,12 +4,12 @@
 
 using namespace std;
 
-Movies::Movies(string title_, int rating_, string genre_, int releaseDate_, int views_){
+Movies::Movies(string title_, int rating_, string genre_, int releaseDate_, int length_){
     title = title_;
     rating = rating_;
     genre= genre_;
-    releaseDate = releaseDate_;
-    views= views_;
+    releaseDate = releaseDate_
+    length= length_;
 
 }
 
@@ -34,7 +34,7 @@ int Movies::getReleaseDate(){
 
 }
 
-int Movies::getViews(){
-    return this->views;
+int Movies::getLength(){
+    return this->length;
 
 }

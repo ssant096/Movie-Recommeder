@@ -33,13 +33,14 @@
    +displayMovieTitleInputMenu() void
    +displayGenreInputMenu() void
    +displayAddMovieMenu() void
+   +sortMenu() void
  }
  class Database{
    -movieDatabaseMovieName: string
    -movieDatabaseMovieRating : double
    -movieDatabaseMovieLength : int
    -movieDatabaseMovieReleaseDate : int
-   -databaseList : vector(Movies)
+   -databaseList : vector Movies
    +loadMovies() void
    +saveMoviesList() void
    +addMovieToList(MoviesList currentList, string title, double rating, int length, int releaseDate, string genre) void
@@ -60,7 +61,7 @@
    +Movies(string title, double rating, int length, int releaseDate, string genre) 
  }
  class MoviesList{
-   -listOfMovies : vector(Movies)
+   -listOfMovies : vector Movies
    -numMovies : int
    -filterList : Filter
    -movieDatabase : Database
@@ -69,7 +70,7 @@
    +MoviesList(Database* fullDatabase);
  }
  class Filter{
-   -listToModify : vector(Movies)
+   -listToModify : vector Movies
    +sortByLength() : vector(Movies)
    +sortByGenre(string movieGenre) : vector(Movies)
    +sortByYear() : vector(Movies)

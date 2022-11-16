@@ -43,7 +43,7 @@
    -databaseList : vector Movies
    +loadMovies() void
    +saveMoviesList() void
-   +addMovieToList(MoviesList currentList, string title, double rating, int length, int releaseDate, string genre) void
+   +addMovieToList(MoviesList currentList, string title, string genre, int releaseDate, int length, double rating) void
    +deleteMovieFromList(Movies movieToDelete) void
    +returnDatabaseList() : vector(Movies)
  }
@@ -58,7 +58,7 @@
    +getGenre() string
    +getReleaseDate() int
    +getLength() int
-   +Movies(string title, double rating, int length, int releaseDate, string genre) 
+   +Movies(string title, string genre, int releaseDate, int length, double rating) 
  }
  class MoviesList{
    -listOfMovies : vector Movies

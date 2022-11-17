@@ -21,8 +21,9 @@ void Driver::displayMainMenu(){
     cout << "3. Add a movie to the list" << endl;
     cin >> userInput;
  
-    while(userInput != 1 || userInput != 2 || userInput != 3){
-        cout << "Invalid option. Enter 1, 2, or 3"
+    while(userInput != 1 && userInput != 2 && userInput != 3){
+        cout << "Invalid option. Enter 1, 2, or 3" << endl;
+        cin >> userInput;
     }
     if(userInput == 1){
         displayMovieTitleInputMenu();

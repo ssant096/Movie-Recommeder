@@ -11,7 +11,7 @@ MoviesList::MoviesList(string filterType)
 }
 
 MoviesList::MoviesList(Database* fullDatabase)
-{
+{   
 
 }
 

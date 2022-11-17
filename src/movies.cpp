@@ -4,13 +4,12 @@
 
 using namespace std;
 
-Movies::Movies(string title_, int rating_, string genre_, int releaseDate_, int length_){
+Movies::Movies(string title_, string genre_, int releaseDate_, int length _, double rating_){
     title = title_;
-    rating = rating_;
-    genre= genre_;
-    releaseDate = releaseDate_
+    genre = genre_;
+    releaseDate = releaseDate_;
     length= length_;
-
+    rating= rating_;
 }
 
 double Movies::getRating(){

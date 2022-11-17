@@ -3,7 +3,7 @@
 
 class MoviesList{
     private:
-        Movies** listOfMovies; 
+        vector<Movies> listOfMovies; 
         int numMovies; 
         int listCapacity; 
         Filter filterList; 

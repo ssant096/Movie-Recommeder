@@ -20,11 +20,13 @@ class Database{
         vector <Movies> databaseList;
 
     public:
+        Database();
         void displayMovies(vector <MovieRecord>& movies);
         void initDatabase(vector <MovieRecord>& movies);
         void loadMovies();
-        void saveMovieToList();
-        void deleteMovieFromList(string movieName);
+        void addMovieToList(string title, string genre, int year, int length, double rating);
+        void deleteLastMovieFromList();
+        vector<Movies> returnDatabaseList();
 };
 
 

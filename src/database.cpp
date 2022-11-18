@@ -6,9 +6,13 @@
 
 #include "../header/database.h"
 #include "../header/movieRecord.h"
+#include "../header/movies.h"
 
 using namespace std;
 
+Database::Database(){
+    loadMovies();
+}
 
 void Database::displayMovies(vector <MovieRecord>& movies){
     for (auto movie : movies) {
@@ -37,8 +41,23 @@ void Database::initDatabase(vector <MovieRecord>& movies){
         getline(inputString, inputLength, ',');
         getline(inputString, inputRating);
 
-        MovieRecord movie(inputTitle, inputGenre, inputYear, inputLength, inputRating);
-        movies.push_back(movie);
+        movieTitle = inputTitle;
+
+        bool stop = false;
+        for(int i = 0; i < inputGenre.size(); i++){
+            if(stop == false && inputGenre.at(i) == ','){
+                inputGenre = inputGenre.substr(0,i);
+                stop = true;
+            }
+        }
+
+        movieGenre = inputGenre;
+        movieYear = atoi(inputYear.c_str());
+        movieLength = atoi(inputLength.c_str());
+        movieRating = atof(inputRating.c_str());
+
+        Movies movie(movieTitle, movieGenre, movieYear, movieLength, movieRating);
+        databaseList.push_back(movie);
         line = "";
     }
     inputFile.close();
@@ -47,5 +66,17 @@ void Database::initDatabase(vector <MovieRecord>& movies){
 void Database::loadMovies(){
     vector <MovieRecord> moviesList;
     initDatabase(moviesList);
-    displayMovies(moviesList);
+}
+
+vector<Movies> Database::returnDatabaseList(){
+    return databaseList;
+}
+
+void Database::addMovieToList(string title, string genre, int year, int length, double rating){
+    Movies newMovie(title, genre, year, length, rating);
+    databaseList.push_back(newMovie);
+}
+
+void Database::deleteLastMovieFromList(){
+    databaseList.pop_back();
 }

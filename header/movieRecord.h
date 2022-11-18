@@ -31,11 +31,6 @@ public:
         movieYear = year;
         movieLength = length;
         movieRating = rating;
-        /*
-        movieYear = atoi(year.c_str());
-        movieLength = atoi(length.c_str());
-        movieRating = atof(year.c_str());
-        */
         
     }
 

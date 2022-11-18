@@ -11,6 +11,7 @@ private:
     Database movieDatabase;
     MoviesList listToOutput;
 public:
+    Driver();
     void displayMainMenu();//displays starting menu to user;
     void displayMovieTitleInputMenu();
     void displayGenreInputMenu();

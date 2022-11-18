@@ -3,15 +3,14 @@
 
 #include <string>
 #include <vector>
-//#include "../header/MoviesList.h"
-//#include "../header/Database.h"
+#include "../header/moviesList.h"
+#include "../header/database.h"
 
 class Driver{
 private:
     Database movieDatabase;
     MoviesList listToOutput;
 public:
-    Driver();//default constructor
     void displayMainMenu();//displays starting menu to user;
     void displayMovieTitleInputMenu();
     void displayGenreInputMenu();

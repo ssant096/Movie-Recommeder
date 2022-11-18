@@ -1,19 +1,13 @@
 #include <string>
 #include <vector>
 #include <iostream>
-//#include "../header/MoviesList.h"
-//#include "../header/Database.h"
+#include "../header/moviesList.h"
+#include "../header/database.h"
  
 using namespace std;
- 
-Driver::Driver(){
-    movieDatabase = new Database;
-    listToOutput = new MoviesList;
-}
- 
+
 void Driver::displayMainMenu(){
     int userInput;
- 
     cout << "Choose an option (1, 2, or 3):" << endl;
     cout << endl;
     cout << "1. Enter movie title and recieve recommendations" << endl;

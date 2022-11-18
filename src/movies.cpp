@@ -1,4 +1,4 @@
-#include "movies.h"
+#include "../header/movies.h"
 #include <iostream>
 #include <string.h>
 

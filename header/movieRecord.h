@@ -16,11 +16,27 @@ public:
         string length,
         string rating
     ) {
+
+        
         movieTitle = title;
+        bool stop = false;
+        //removes all but first genre
+        for(int i = 0; i < genre.size(); ++i){
+            if(stop == false && genre.at(i) == ','){
+                genre = genre.substr(0, i);
+                stop = true;
+            }
+        }
         movieGenre = genre;
         movieYear = year;
         movieLength = length;
         movieRating = rating;
+        /*
+        movieYear = atoi(year.c_str());
+        movieLength = atoi(length.c_str());
+        movieRating = atof(year.c_str());
+        */
+        
     }
 
     void display() {

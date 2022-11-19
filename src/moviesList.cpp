@@ -12,9 +12,56 @@ MoviesList::MoviesList(){
     listOfMovies = movieDatabase.returnDatabaseList();
 }
 
-MoviesList::MoviesList(string filterType)
-{
+MoviesList::MoviesList(string filterType){
+    if(filterType == "rating"){
 
+    }
+    else if(filterType = "length"){
+
+    }
+    else if(filterType = "year"){
+
+    }
+
+}
+
+MoviesList::MoviesList(int genreNumber){
+    if (genreNumber == 1){
+
+    }
+    else if (genreNumber == 2){
+
+    }
+    else if (genreNumber == 3){
+        
+    }
+    else if (genreNumber == 4){
+        
+    }
+    else if (genreNumber == 5){
+        
+    }
+    else if (genreNumber == 6){
+        
+    }
+    else if (genreNumber == 7){
+        
+    }
+    else if (genreNumber == 8){
+        
+    }
+    else if (genreNumber == 9){
+        
+    }
+    else if (genreNumber == 10){
+        
+    }
+    else if (genreNumber == 11){
+        
+    }
+    else if (genreNumber == 12){
+        
+    }
 }
 
 MoviesList::MoviesList(string filterType, string movieTitle)

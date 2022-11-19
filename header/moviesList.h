@@ -15,6 +15,7 @@ public:
         MoviesList();//creates a list containing all movies from database
         void printListOfMovies();//prints a list of all movies in current list
         MoviesList(string filterType);//creates list of movies based on given filter
+        MoviesList(int genre);//creates list of movies based on int mapped genre
         MoviesList(string filterType, string movieTitle);
         vector<Movies> returnMoviesList();
 };

@@ -8,7 +8,7 @@
 using namespace std;
 
 Driver::Driver(){
-    
+
 }
 
 void Driver::displayMainMenu(){
@@ -54,8 +54,8 @@ void Driver::sortMenu(){
     cout << "4. Sort by release year" << endl;
     cin >> intInput;
  
-    while(intInput != 1 && intInput != 2 && intInput != 3 && intInput != 4){
-        cout << "Invalid option. Enter 1, 2, 3, or 4" << endl;
+    while(intInput != 1 && intInput != 2 && intInput != 3 && intInput != 4 && intInput != 5){
+        cout << "Invalid option. Enter 1, 2, 3, 4, or 5" << endl;
         cin >> intInput;
     }
     if(intInput == 1){
@@ -72,6 +72,9 @@ void Driver::sortMenu(){
     else if(intInput == 4){
         listToOutput = MoviesList("year");
         listToOutput.printListOfMovies();
+    }
+    else if(intInput == 5){
+        displayGenreInputMenu();
     }
  
 }
@@ -101,18 +104,18 @@ void Driver::displayGenreInputMenu(){
         cin >> answer;
     }
 
-    if(answer == 1){MoviesList("Action");}
-    else if(answer == 2){MoviesList("Comedy");}
-    else if(answer == 3){MoviesList("Adventure");}
-    else if(answer == 4){MoviesList("Biography");}
-    else if(answer == 5){MoviesList("Drama");}
-    else if(answer == 6){MoviesList("Crime");}
-    else if(answer == 7){MoviesList("Animation");}
-    else if(answer == 8){MoviesList("Horror");}
-    else if(answer == 9){MoviesList("Mystery");;}
-    else if(answer == 10){MoviesList("Thriller");}
-    else if(answer == 11){MoviesList("Sci-Fi");}
-    else if(answer == 12){MoviesList("Romance");}
+    if(answer == 1){listToOutput = MoviesList(1);}
+    else if(answer == 2){listToOutput = MoviesList(2);}
+    else if(answer == 3){listToOutput = MoviesList(3);}
+    else if(answer == 4){listToOutput = MoviesList(4);}
+    else if(answer == 5){listToOutput = MoviesList(5);}
+    else if(answer == 6){listToOutput = MoviesList(6);}
+    else if(answer == 7){listToOutput = MoviesList(7);}
+    else if(answer == 8){listToOutput = MoviesList(8);}
+    else if(answer == 9){listToOutput = MoviesList(9);;}
+    else if(answer == 10){listToOutput = MoviesList(10);}
+    else if(answer == 11){listToOutput = MoviesList(11);}
+    else if(answer == 12){listToOutput = MoviesList(12);}
 
     sortMenu();
 }

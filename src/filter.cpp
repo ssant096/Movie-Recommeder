@@ -12,7 +12,7 @@ Filter::Filter(){
 }
 
 Filter::Filter(vector<Movies> listOfMovies){
-
+    listToModify = listOfMovies;
 }
 
 vector<Movies> Filter::sortByLength(){
@@ -24,8 +24,7 @@ vector<Movies> Filter::sortByGenre(string movieGenre)(){
 }
 
 vector<Movies> Filter::sortByYear(){
-    vector <int> newMoviesList = {1, 2, 3}; //dummy template
-    sort(newMoveisList.begin(),newMoviesList.end(), greater<int>());
+    sort(listToModify.begin(),newMoviesList.end(), greater<int>());
     
 }
 

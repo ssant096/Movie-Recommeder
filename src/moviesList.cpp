@@ -1,5 +1,6 @@
 #include "../header/moviesList.h"
 #include "../header/database.h"
+#include "../header/movies.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -13,14 +14,13 @@ MoviesList::MoviesList(){
 
 MoviesList::MoviesList(string filterType)
 {
+
+}
+
+MoviesList::MoviesList(string filterType, string movieTitle)
+{
     
 }
-/*
-MoviesList::MoviesList(Database* fullDatabase)
-{
-    movieDatabase = fullDatabase;
-    listOfMovies = movieDatabase.returnDatabaseList();
-}*/
 
 void MoviesList::printListOfMovies()
 {
@@ -28,4 +28,8 @@ void MoviesList::printListOfMovies()
     {
         cout<<listOfMovies[i].getTitle()<<", "<<listOfMovies[i].Genre()<<", "<<listOfMovies[i].getReleaseDate()<< ", "<<listOfMovies[i].getLength() <<", "<< listOfMovies[i].getRating() << endl;
     }
+}
+
+vector<Movies> MoviesList::returnMoviesList(){
+    return listOfMovies;
 }

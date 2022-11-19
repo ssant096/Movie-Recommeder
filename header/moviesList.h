@@ -3,18 +3,20 @@
 
 //#include "../header/filter.h"
 #include "../header/database.h"
+#include "../header/movies.h"
 
 class MoviesList{
     private:
-        vector <Movies> listOfMovies;//change: made into vector
+        vector <Movies> listOfMovies;
         //Filter filterList; 
         Database movieDatabase; 
 
 public:
-        MoviesList();
-        void printListOfMovies();//prints a list of all movies
+        MoviesList();//creates a list containing all movies from database
+        void printListOfMovies();//prints a list of all movies in current list
         MoviesList(string filterType);//creates list of movies based on given filter
-        //MoviesList(Database* fullDatabase);//creates a list containing all movies
+        MoviesList(string filterType, string movieTitle);
+        vector<Movies> returnMoviesList();
 };
 
 #endif

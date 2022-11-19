@@ -11,6 +11,6 @@ using namespace std;
 
 int main() {
     Driver start;
-    
+    start.displayMainMenu();
     return 0;
 }

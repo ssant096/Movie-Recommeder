@@ -1,9 +1,9 @@
+#include <iostream>
+#include <cstring>
+#include <vector>
 #include "../header/moviesList.h"
 #include "../header/database.h"
 #include "../header/movies.h"
-#include <iostream>
-#include <string>
-#include <vector>
 
 using namespace std;
 
@@ -12,65 +12,34 @@ MoviesList::MoviesList(){
     listOfMovies = movieDatabase.returnDatabaseList();
 }
 
-MoviesList::MoviesList(string filterType){
+MoviesList::MoviesList(vector<Movies> listToFilter, string filterType){
+    listOfMovies = listToFilter;
+
     if(filterType == "rating"){
-
+        filterList = Filter(listOfMovies);
+        listOfMovies = filterList.sortByRating();
     }
-    else if(filterType = "length"){
-
+    else if(filterType == "length"){
+        filterList = Filter(listOfMovies);
+        listOfMovies = filterList.sortByLength();
     }
-    else if(filterType = "year"){
-
-    }
-
-}
-
-MoviesList::MoviesList(int genreNumber){
-    if (genreNumber == 1){
-
-    }
-    else if (genreNumber == 2){
-
-    }
-    else if (genreNumber == 3){
-        
-    }
-    else if (genreNumber == 4){
-        
-    }
-    else if (genreNumber == 5){
-        
-    }
-    else if (genreNumber == 6){
-        
-    }
-    else if (genreNumber == 7){
-        
-    }
-    else if (genreNumber == 8){
-        
-    }
-    else if (genreNumber == 9){
-        
-    }
-    else if (genreNumber == 10){
-        
-    }
-    else if (genreNumber == 11){
-        
-    }
-    else if (genreNumber == 12){
-        
+    else if(filterType == "year"){
+        filterList = Filter(listOfMovies);
+        listOfMovies = filterList.sortByYear();
     }
 }
 
-MoviesList::MoviesList(string filterType, string movieTitle)
-{
-    
+void MoviesList::filterByGenre(string genre){
+    filterList = Filter(listOfMovies);
+    listOfMovies = filterList.sortByGenre(genre);
 }
 
-void MoviesList::printListOfMovies()
-{
+void MoviesList::filterByName(string movieTitle){
+    filterList = Filter(listOfMovies);
+    listOfMovies = filterList.findSimilarMovies(movieTitle);
+}
+
+void MoviesList::printListOfMovies(){
     for(unsigned i=0; i<listOfMovies.size();i++)
     {
         cout<<listOfMovies[i].getTitle()<<", "<<listOfMovies[i].Genre()<<", "<<listOfMovies[i].getReleaseDate()<< ", "<<listOfMovies[i].getLength() <<", "<< listOfMovies[i].getRating() << endl;

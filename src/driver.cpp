@@ -36,11 +36,12 @@ void Driver::displayMainMenu(){
 }
  
 void Driver::displayMovieTitleInputMenu(){
-    string stringInput;
+    string stringInput = "";
  
     cout << "Enter a movie title:" << endl;
     getline(cin >> ws, stringInput);
-    MoviesList("recommend", stringInput);// changes movie list in listToOutput into a new filtered movie list
+    listToOutput.filterByName(stringInput);
+
     sortMenu();
 }
  
@@ -54,69 +55,34 @@ void Driver::sortMenu(){
     cout << "4. Sort by release year" << endl;
     cin >> intInput;
  
-    while(intInput != 1 && intInput != 2 && intInput != 3 && intInput != 4 && intInput != 5){
-        cout << "Invalid option. Enter 1, 2, 3, 4, or 5" << endl;
+    while(intInput != 1 && intInput != 2 && intInput != 3 && intInput != 4){
+        cout << "Invalid option. Enter 1, 2, 3, or 4" << endl;
         cin >> intInput;
     }
     if(intInput == 1){
         listToOutput.printListOfMovies();
     }
     else if(intInput == 2){
-        listToOutput = MoviesList("rating");
+        listToOutput = MoviesList(listToOutput.returnMoviesList(), "rating");
         listToOutput.printListOfMovies();
     }
     else if(intInput == 3){
-        listToOutput = MoviesList("length");
+        listToOutput = MoviesList(listToOutput.returnMoviesList(), "length");
         listToOutput.printListOfMovies();
     }
     else if(intInput == 4){
-        listToOutput = MoviesList("year");
+        listToOutput = MoviesList(listToOutput.returnMoviesList(), "year");
         listToOutput.printListOfMovies();
     }
-    else if(intInput == 5){
-        displayGenreInputMenu();
-    }
- 
 }
  
 void Driver::displayGenreInputMenu(){
-    string genreInput;
-    int answer;
+    string genreInput = "";
  
-    cout << "Choose a movie genre:" << endl;
-    cout << "1. Action" << endl;
-    cout << "2. Comedy" << endl;
-    cout << "3. Adventure" << endl;
-    cout << "4. Biography" << endl;
-    cout << "5. Drama" << endl;
-    cout << "6. Crime" << endl;
-    cout << "7. Animation" << endl;
-    cout << "8. Horror" << endl;
-    cout << "9. Mystery" << endl;
-    cout << "10. Thriller" << endl;
-    cout << "11. Sci-Fi" << endl;
-    cout << "12. Romance" << endl;
-    cin >> answer;
+    cout << "Enter a movie genre (Action, Comedy, Adventure, Biography, Drama, Crime, Horror, Mystery, Thriller, Sci-Fi, Romance):" << endl;
+    cin >> genreInput;
 
-    while (answer != 1 && answer != 2 && answer != 3 && answer != 4 && answer != 5 && answer != 6 && answer != 7 && answer != 8 && answer != 9 && answer != 10 && 
-    answer != 11 && answer != 11){
-        cout << "Invalid Input. Enter a number from 1-12" << endl;
-        cin >> answer;
-    }
-
-    if(answer == 1){listToOutput = MoviesList(1);}
-    else if(answer == 2){listToOutput = MoviesList(2);}
-    else if(answer == 3){listToOutput = MoviesList(3);}
-    else if(answer == 4){listToOutput = MoviesList(4);}
-    else if(answer == 5){listToOutput = MoviesList(5);}
-    else if(answer == 6){listToOutput = MoviesList(6);}
-    else if(answer == 7){listToOutput = MoviesList(7);}
-    else if(answer == 8){listToOutput = MoviesList(8);}
-    else if(answer == 9){listToOutput = MoviesList(9);;}
-    else if(answer == 10){listToOutput = MoviesList(10);}
-    else if(answer == 11){listToOutput = MoviesList(11);}
-    else if(answer == 12){listToOutput = MoviesList(12);}
-
+    listToOutput.filterByGenre(genreInput);
     sortMenu();
 }
  

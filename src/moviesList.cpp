@@ -12,12 +12,12 @@ MoviesList::MoviesList(string filterType)
         cout<<"Enter which genre\n";
         string genre;
         cin>>genre;
-        sortByGenre(genre);
+        //sortByGenre(genre);
     }
     else if(filterType=="year"||filterType=="Year")
-        sortByYear();
+        //sortByYear();
     else if(filterType=="length"||filterType=="Length")
-        sortByLength();
+        //sortByLength();
 }
 
 MoviesList::MoviesList(Database* fullDatabase)

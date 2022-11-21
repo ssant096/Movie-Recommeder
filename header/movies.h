@@ -5,6 +5,7 @@ using namespace std;
 #ifndef __MOVIES_H__
 #define __MOVIES_H__
 
+
 class Movies {
 private:
   string title;    // title of the movie

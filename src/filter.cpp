@@ -38,3 +38,4 @@ vector<Movies> Filter::findSimilarMovies(string movieTitle){
 
     return listToModify; 
 }
+

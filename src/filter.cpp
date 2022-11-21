@@ -1,8 +1,8 @@
-#include "Filter.h"
 #include <iostream>
 #include <algorithm>
 #include <string>
 #include <vector>
+#include "../header/filter.h"
 
 using namespace std;
 
@@ -11,23 +11,30 @@ Filter::Filter(){
 }
 
 Filter::Filter(vector<Movies> listOfMovies){
-
+    listToModify = listOfMovies;
 }
 
 vector<Movies> Filter::sortByLength(){
 
+    return listToModify; 
 }
 
-vector<Movies> Filter::sortByGenre(string movieGenre)(){
+vector<Movies> Filter::sortByGenre(string movieGenre){
 
+    return listToModify; 
 }
 
 vector<Movies> Filter::sortByYear(){
-    vector <int> newMoviesList = {1, 2, 3}; //dummy template
-    sort(newMoveisList.begin(),newMoviesList.end(), greater<int>());
-    
+
+    return listToModify; 
+}
+
+vector<Movies> Filter::sortByRating(){
+
+    return listToModify;    
 }
 
 vector<Movies> Filter::findSimilarMovies(string movieTitle){
 
+    return listToModify; 
 }

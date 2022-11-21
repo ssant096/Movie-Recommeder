@@ -36,15 +36,16 @@
    +sortMenu() void
  }
  class Database{
-   -movieDatabaseMovieName: string
-   -movieDatabaseMovieRating : double
-   -movieDatabaseMovieLength : int
-   -movieDatabaseMovieReleaseDate : int
+   -movieTitle: string
+   -movieRating : double
+   -movieLength : int
+   -movieYear : int
    -databaseList : vector Movies
    +loadMovies() void
-   +saveMoviesList() void
+   +displayMovies(vector(MovieRecord) movies) void
+   +initDatabase (vector(MovieRecord) movies) void
    +addMovieToList(MoviesList currentList, string title, string genre, int releaseDate, int length, double rating) void
-   +deleteMovieFromList(Movies movieToDelete) void
+   +deleteMovieFromList(string titleToDelete) void
    +returnDatabaseList() : vector(Movies)
  }
  class Movies{
@@ -55,19 +56,21 @@
    -length : int
    +getRating() double
    +getTitle() string
-   +getGenre() string
+   +Genre() string
    +getReleaseDate() int
    +getLength() int
    +Movies(string title, string genre, int releaseDate, int length, double rating) 
  }
  class MoviesList{
    -listOfMovies : vector Movies
-   -numMovies : int
    -filterList : Filter
    -movieDatabase : Database
    +printListOfMovies() void
    +MoviesList(string filterType);
-   +MoviesList(Database* fullDatabase);
+   +MoviesList(vector Movies listToFilter, string filterType);
+   +filterByGenre(string genre) void
+   +filterByName(string movieTitle) void
+   +returnMoviesList() vector(Movies)
  }
  class Filter{
    -listToModify : vector Movies

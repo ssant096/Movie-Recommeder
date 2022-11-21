@@ -1,19 +1,18 @@
 #include <string>
 #include <vector>
 #include <iostream>
-//#include "../header/MoviesList.h"
-//#include "../header/Database.h"
+#include "../header/moviesList.h"
+#include "../header/database.h"
+#include "../header/driver.h"
  
 using namespace std;
- 
+
 Driver::Driver(){
-    movieDatabase = new Database;
-    listToOutput = new MoviesList;
+
 }
- 
+
 void Driver::displayMainMenu(){
     int userInput;
- 
     cout << "Choose an option (1, 2, or 3):" << endl;
     cout << endl;
     cout << "1. Enter movie title and recieve recommendations" << endl;
@@ -37,73 +36,75 @@ void Driver::displayMainMenu(){
 }
  
 void Driver::displayMovieTitleInputMenu(){
-    string stringInput;
+    string stringInput = "";
  
     cout << "Enter a movie title:" << endl;
-    getline(cin, stringInput);
-    listToOutput = new MoviesList("recommend");// changes movie list in listToOutput into a new filtered movie list
+    getline(cin >> ws, stringInput);
+    listToOutput.filterByName(stringInput);
+
     sortMenu();
 }
  
 void Driver::sortMenu(){
     int intInput;
-    Filter sortMovies;
  
     cout << "Choose an option (1, 2, 3 or 4):" << endl;
     cout << "1. Don't sort" << endl;
     cout << "2. Sort by rating" << endl;
     cout << "3. Sort by length" << endl;
     cout << "4. Sort by release year" << endl;
-    cin << intInput;
+    cin >> intInput;
  
-    while(intInput != 1 || intInput != 2 || intInput != 3 || intInput != 4){
-        cout << "Invalid option. Enter 1, 2, 3, or 4"
+    while(intInput != 1 && intInput != 2 && intInput != 3 && intInput != 4){
+        cout << "Invalid option. Enter 1, 2, 3, or 4" << endl;
+        cin >> intInput;
     }
     if(intInput == 1){
         listToOutput.printListOfMovies();
     }
     else if(intInput == 2){
-        listToOutput = new MoviesList("rating");
+        listToOutput = MoviesList(listToOutput.returnMoviesList(), "rating");
         listToOutput.printListOfMovies();
     }
     else if(intInput == 3){
-        listToOutput = new MoviesList("length");
+        listToOutput = MoviesList(listToOutput.returnMoviesList(), "length");
         listToOutput.printListOfMovies();
     }
     else if(intInput == 4){
-        listToOutput = new MoviesList("year");
+        listToOutput = MoviesList(listToOutput.returnMoviesList(), "year");
         listToOutput.printListOfMovies();
     }
- 
 }
  
 void Driver::displayGenreInputMenu(){
-    string genreInput;
+    string genreInput = "";
  
-    cout << "Enter a movie genre:" << endl;
-    getline(cin, genreInput);
-    listToOutput = new MoviesList("genre");// changes movie list in listToOutput into a new filtered movie list
+    cout << "Enter a movie genre (Action, Comedy, Adventure, Biography, Drama, Crime, Horror, Mystery, Thriller, Sci-Fi, Romance):" << endl;
+    cin >> genreInput;
+
+    listToOutput.filterByGenre(genreInput);
     sortMenu();
 }
  
 void Driver::displayAddMovieMenu(){
     string newTitle;
     string newGenre;
-    int newRating;
     int newYear;
     int newLength;
+    double newRating;
  
     cout << "Adding new movie to list: " << endl;
     cout << "Enter movie title" << endl;
-    cin >> newTitle;
+    getline(cin >> ws, newTitle);
     cout << "Enter movie genre" << endl;
     cin >> newGenre;
-    cout << "Enter movie rating" << endl;
-    cin >> newRating;
     cout << "Enter movie release year" << endl;
     cin >> newYear;
     cout << "Enter movie length (in minutes)" << endl;
     cin >> newLength;
+    cout << "Enter movie rating" << endl;
+    cin >> newRating;
  
-    movieDatabase.addMovieToList(listToOutput, newTitle, newRating, newLength, newYear, newGenre);
+    movieDatabase.addMovieToList(newTitle, newGenre, newYear, newLength, newRating);
+    displayMainMenu();
 }

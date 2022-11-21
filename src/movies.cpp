@@ -1,10 +1,11 @@
-#include "../header/movies.h"
+#include "movies.h"
 #include <iostream>
-#include <string>
+#include <string.h>
 
 using namespace std;
 
-Movies::Movies(string title_, string genre_, int releaseDate_, int length_, double rating_) {
+Movies::Movies(string title_, string genre_, int releaseDate_, int length_,
+               double rating_) {
   title = title_;
   genre = genre_;
   releaseDate = releaseDate_;

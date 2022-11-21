@@ -1,9 +1,10 @@
-#ifndef __MOVIES_H__
-#define __MOVIES_H__
-
 #include <string>
 
 using namespace std;
+
+#ifndef __MOVIES_H__
+#define __MOVIES_H__
+
 
 class Movies {
 private:

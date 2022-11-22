@@ -5,21 +5,15 @@
 #include <vector> 
 
 #include "../header/database.h"
-#include "../header/movieRecord.h"
 #include "../header/movies.h"
 
 using namespace std;
 
 Database::Database(){
-    loadMovies();
+    initDatabase();
 }
 
-void Database::displayMovies(vector <MovieRecord>& movies){
-    for (auto movie : movies) {
-        movie.display();
-    }
-}
-void Database::initDatabase(vector <MovieRecord>& movies){
+void Database::initDatabase(){
     ifstream inputFile;
     inputFile.open("databaseInfo/IMDB-Top-1000-Movies(2018).csv");
 
@@ -62,11 +56,6 @@ void Database::initDatabase(vector <MovieRecord>& movies){
     }
     inputFile.close();
 }  
-
-void Database::loadMovies(){
-    vector <MovieRecord> moviesList;
-    initDatabase(moviesList);
-}
 
 vector<Movies> Database::returnDatabaseList(){
     return databaseList;

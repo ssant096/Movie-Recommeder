@@ -8,7 +8,6 @@
 using namespace std;
 
 MoviesList::MoviesList(){
-    movieDatabase.loadMovies();
     listOfMovies = movieDatabase.returnDatabaseList();
 }
 
@@ -40,9 +39,9 @@ void MoviesList::filterByName(string movieTitle){
 }
 
 void MoviesList::printListOfMovies(){
-    for(unsigned i=0; i<listOfMovies.size();i++)
+    for(int i=0; i<listOfMovies.size(); i++)
     {
-        cout<<listOfMovies[i].getTitle()<<", "<<listOfMovies[i].Genre()<<", "<<listOfMovies[i].getReleaseDate()<< ", "<<listOfMovies[i].getLength() <<", "<< listOfMovies[i].getRating() << endl;
+        cout << "#" << i + 1 << " " <<listOfMovies[i].getTitle()<<", "<<listOfMovies[i].Genre()<<", "<<listOfMovies[i].getReleaseDate()<< ", "<<listOfMovies[i].getLength() <<", "<< listOfMovies[i].getRating() << endl;
     }
 }
 

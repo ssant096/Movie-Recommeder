@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "../header/movieRecord.h"
 #include "../header/movies.h"
 
 
@@ -18,13 +17,11 @@ class Database{
         int movieYear;
         int movieLength;
         double movieRating;
-        vector <Movies> databaseList;
+        vector<Movies> databaseList;
 
     public:
         Database();
-        void displayMovies(vector <MovieRecord>& movies);
-        void initDatabase(vector <MovieRecord>& movies);
-        void loadMovies();
+        void initDatabase();
         void addMovieToList(string title, string genre, int year, int length, double rating);
         void deleteLastMovieFromList();
         vector<Movies> returnDatabaseList();

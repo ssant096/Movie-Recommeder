@@ -25,6 +25,9 @@ vector<Movies> Filter::sortByGenre(string movieGenre){
 }
 
 vector<Movies> Filter::sortByYear(){
+    sort(listToModify.begin(), listToModify.end(), [](Movies& lhs, Movies& rhs){
+        return lhs.getReleaseDate() > rhs.getReleaseDate();
+    });
 
     return listToModify; 
 }

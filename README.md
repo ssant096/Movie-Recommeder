@@ -41,11 +41,9 @@
    -movieLength : int
    -movieYear : int
    -databaseList : vector Movies
-   +loadMovies() void
-   +displayMovies(vector(MovieRecord) movies) void
-   +initDatabase (vector(MovieRecord) movies) void
+   +initDatabase () void
    +addMovieToList(MoviesList currentList, string title, string genre, int releaseDate, int length, double rating) void
-   +deleteMovieFromList(string titleToDelete) void
+   +deleteLastMovieFromList() void
    +returnDatabaseList() : vector(Movies)
  }
  class Movies{

@@ -16,18 +16,18 @@ Filter::Filter(vector<Movies> listOfMovies){
 
 vector<Movies> Filter::sortByLength(){
     sort(listToModify.begin(), listToModify.end(), [](Movies& lhs, Movies& rhs){
-        return lhs.Genre() > rhs.Genre();
+        return lhs.getLength() > rhs.getLength();
     });
     
     return listToModify; 
 }
 
 vector<Movies> Filter::sortByGenre(string movieGenre){
-    vector <MoviesList> genreMoviesList;
+    vector<Movies> genreMoviesList;
 
     for(int i = 0; i < listToModify.size(); i++){
-        if(listToModify.at(i).Genre == movieGenre){
-            genreMovieList.push_back(listToModify.at(i));
+        if(listToModify.at(i).Genre() == movieGenre){
+            genreMoviesList.push_back(listToModify.at(i));
         }
     }
 
@@ -52,12 +52,16 @@ vector<Movies> Filter::sortByRating(){
 }
 
 vector<Movies> Filter::findSimilarMovies(string movieTitle){
-    string genre = "Action";
+    string genre = "";
     for(int i = 0; i < listToModify.size(); i++){
         if(listToModify.at(i).getTitle() == movieTitle){
             genre = listToModify.at(i).Genre();
+            return sortByGenre(genre); 
         }
     }
-
-    return sortByGenre(genre); 
+    cout << endl;
+    cout << "Movie not in List." << endl;
+    cout << endl;
+    listToModify.clear();
+    return listToModify;
 }

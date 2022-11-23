@@ -1,12 +1,3 @@
-#include "filter.h"
-#include "moviesList.h"
-#include "movies.h"
-#include <iostream>
-#include <string>
-#include <vector>
-
-using namespace std;
-
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -27,7 +18,7 @@ vector<Movies> Filter::sortByLength(){
     sort(listToModify.begin(), listToModify.end(), [](Movies& lhs, Movies& rhs){
         return lhs.Genre() > rhs.Genre();
     });
-
+    
     return listToModify; 
 }
 

@@ -4,36 +4,82 @@
  [Shan Santhakumar](https://github.com/ssant096), [Tim Cheung](https://github.com/tcheu024), [Hirsch Chheda](https://github.com/Hirschheda), [Yash Singhal](https://github.com/ysinghal03)
 
 ## Project Description
- > Our team is proposing to make a Movie Recommender. We chooe this as our project because we felt that a movie recommender involves elements we have learned about in our previous classes such as sorting algorithms. This particular project will also allow us to create and incorporate multiple classes that we can use together to give the user the best possible prediction of what movies they like to watch. We plan to use C++ as the primary language for the project and our choice of IDE is going to be VSCODE. This is because we also plan on using Valgrind as our primary debugging tool to fix memory leaks and other errors that make occur during production.
- >The input of our project will be movie genres, movie titles, and a method of sorting (by release date or rating for example). The output will be a collection of movies with ratings and the release year. 
- >Our project will allow users to search for movies based on genre and also display a list of recommended similar movies based off of a user entered movie title. Lastly, all of the displayed movies will have the option of being sorted by either rating or release date. 
+ Our team is proposing to make a Movie Recommender. We choose this as our project because we felt that a movie recommender involves elements we have learned about in our previous classes such as sorting algorithms. This particular project will also allow us to create and incorporate multiple classes that we can use together to give the user the best possible prediction of what movies they like to watch. 
+ 
+ We plan to use C++ as the primary language for the project and our choice of IDE is going to be VSCODE. This is because we also plan on using Valgrind as our primary debugging tool to fix memory leaks and other errors that may occur during production.
 
- > ## Phase II
- > In addition to completing the "Class Diagram" section below, you will need to:
- > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Break down the "Epics" into smaller actionable user stories (i.e. smaller development tasks). Convert them into issues and assign them to team members. Place these in the `TODO` column.
- >   * These cards should represent roughly 7 days worth of development time for your team. Then, once the sprint is over you should be repeating these steps to plan a new sprint, taking you until your second scrum meeting with the reader in phase III.
- > * Schedule two check-ins using Calendly. You need to pick both time slots during your lab on week 6. Your entire team must be present for both check-ins.
- >   * The first check-in needs to be scheduled with your lab TA. During that meeting, you will discuss your project design/class diagram from phase II.
- >   * The second check-in should be scheduled with a reader. During that meeting you will discuss:
- >     * The tasks you are planning for the first sprint
- >     * How work will be divided between the team members
+ The input of our project will be movie genres, movie titles, and a method of sorting (by release date or rating for example). The output will be a collection of movies with ratings and the release year. 
+
+ Our project will allow users to search for movies based on genre and also display a list of recommended similar movies based off of a user entered movie title. Lastly, all of the displayed movies will have the option of being sorted by either rating, release date or length. 
+
 ## Class Diagram
- > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
+ For our project, we will have 5 classes: MoviesList, Movies, Filter, Driver, and Database. The MoviesList class will hold the main list of movies that will be output to the user. The Filter class will sort a list of movies input into it and return a sorted list of movies. The Movies class will will be used to construct each indiviual movie with all needed variables. The Database class will read data from a csv file and create a list of movies with that data, while also being capable of adding, removing, and saving movies from that list. Finally, the Driver class will handle all output to the user. The MoviesList class will construct a list of movies using data from the Database class and then use the Filter class to filter the list of Movies to suit the user's preferences based off of the user inputs, given the options output by the Driver class. The user will be able to choose a movie genre or enter a movie title to find similar movies and can sort the displayed movies by either release date, length, or rating. The user will do all of this with the guidance of output displayed by the Driver class.
  
- > ## Phase III
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
- > * Before the meeting you should perform a sprint plan like you did in Phase I.
- > * You should also make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
-> 
-> During the meeting with your reader you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
+ 
+```mermaid
+ classDiagram
+ MoviesList o-- Movies
+ MoviesList *-- Filter
+ Driver o-- MoviesList
+ MoviesList o-- Database
+ Driver o-- Database
+ Filter o-- Movies
+ Database o-- Movies
+ 
+ class Driver{
+   -movieDatabase : Database
+   -listToOutput : MoivesList
+   +displayMainMenu() void
+   +displayMovieTitleInputMenu() void
+   +displayGenreInputMenu() void
+   +displayAddMovieMenu() void
+   +sortMenu() void
+ }
+ class Database{
+   -movieTitle: string
+   -movieRating : double
+   -movieLength : int
+   -movieYear : int
+   -databaseList : vector Movies
+   +initDatabase () void
+   +addMovieToList(MoviesList currentList, string title, string genre, int releaseDate, int length, double rating) void
+   +deleteLastMovieFromList() void
+   +returnDatabaseList() : vector(Movies)
+ }
+ class Movies{
+   -title : string
+   -genre : string
+   -rating : double
+   -releaseDate : int
+   -length : int
+   +getRating() double
+   +getTitle() string
+   +Genre() string
+   +getReleaseDate() int
+   +getLength() int
+   +Movies(string title, string genre, int releaseDate, int length, double rating) 
+ }
+ class MoviesList{
+   -listOfMovies : vector Movies
+   -filterList : Filter
+   -movieDatabase : Database
+   +printListOfMovies() void
+   +MoviesList(string filterType);
+   +MoviesList(vector Movies listToFilter, string filterType);
+   +filterByGenre(string genre) void
+   +filterByName(string movieTitle) void
+   +returnMoviesList() vector(Movies)
+ }
+ class Filter{
+   -listToModify : vector Movies
+   +sortByLength() : vector(Movies)
+   +sortByGenre(string movieGenre) : vector(Movies)
+   +sortByYear() : vector(Movies)
+   +findSimilarMovies(string movieTitle) : vector(Movies)
+   +Filter(vector(Movies) listOfMovies)
+ }
+``` 
 
- 
  > ## Final deliverable
  > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
  > Before the demo, you should do the following:

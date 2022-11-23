@@ -18,10 +18,11 @@ void Driver::displayMainMenu(){
     cout << "1. Enter movie title and recieve recommendations" << endl;
     cout << "2. Enter a genre and view movies of entered genre" << endl;
     cout << "3. Add a movie to the list" << endl;
+    cout << "4. Delete last move from list" << endl;
     cin >> userInput;
  
-    while(userInput != 1 && userInput != 2 && userInput != 3){
-        cout << "Invalid option. Enter 1, 2, or 3" << endl;
+    while(userInput != 1 && userInput != 2 && userInput != 3 && userInput != 4){
+        cout << "Invalid option. Enter 1, 2, 3, or 4" << endl;
         cin >> userInput;
     }
     if(userInput == 1){
@@ -32,6 +33,13 @@ void Driver::displayMainMenu(){
     }
     else if(userInput == 3){
         displayAddMovieMenu();
+    }
+    else if(userInput == 4){
+        movieDatabase.deleteLastMovieFromList();
+        listToOutput = MoviesList(movieDatabase.returnDatabaseList(), "none");
+        cout << "last movie deleted." << endl;
+        cout << endl;
+        displayMainMenu();
     }
 }
  
@@ -85,7 +93,7 @@ void Driver::displayGenreInputMenu(){
     listToOutput.filterByGenre(genreInput);
     sortMenu();
 }
- 
+
 void Driver::displayAddMovieMenu(){
     string newTitle;
     string newGenre;

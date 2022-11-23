@@ -28,13 +28,15 @@ vector<Movies> Filter::sortByYear(){
     sort(listToModify.begin(), listToModify.end(), [](Movies& lhs, Movies& rhs){
         return lhs.getReleaseDate() > rhs.getReleaseDate();
     });
-
-    return listToModify; 
+    
+    return listToModify;
 }
 
 vector<Movies> Filter::sortByRating(){
-
-    return listToModify;    
+    sort(listToModify.begin(), listToModify.end(), [](Movies& lhs, Movies& rhs){
+        return lhs.getRating() > rhs.getRating();
+    });
+    return listToModify;
 }
 
 vector<Movies> Filter::findSimilarMovies(string movieTitle){

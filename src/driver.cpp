@@ -106,5 +106,6 @@ void Driver::displayAddMovieMenu(){
     cin >> newRating;
  
     movieDatabase.addMovieToList(newTitle, newGenre, newYear, newLength, newRating);
+    listToOutput = MoviesList(movieDatabase.returnDatabaseList(), "none");
     displayMainMenu();
 }

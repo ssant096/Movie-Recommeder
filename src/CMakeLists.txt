@@ -1,9 +1,9 @@
 add_library(simpleLibrary
-  Database.cpp
-  Driver.cpp
-  MoviesList.cpp
-  Movies.cpp
-  Filter.cpp
+  database.cpp
+  driver.cpp
+  moviesList.cpp
+  movies.cpp
+  filter.cpp
 )
 
 find_library(M_LIB m)

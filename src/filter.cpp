@@ -38,7 +38,13 @@ vector<Movies> Filter::sortByRating(){
 }
 
 vector<Movies> Filter::findSimilarMovies(string movieTitle){
+    string genre = "Action";
+    for(int i = 0; i < listToModify.size(); i++){
+        if(listToModify.at(i).getTitle() == movieTitle){
+            genre = listToModify.at(i).Genre();
+        }
+    }
 
-    return listToModify; 
+    return sortByGenre(genre); 
 }
 

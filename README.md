@@ -90,7 +90,7 @@
  
  Clone this repository into a workspace. 
  
- To run program: From the project directory in your terminal run "src/*.cpp" then follow the output instructions to make and view a list of movie recomendataions. 
+ To run program: From the project directory in your terminal run "src/*.cpp -o run" then "./run" and follow the output instructions to make and view a list of movie recomendataions. 
  
  To run tests: From the project directory navigate to the tests folder ("cd tests") and add google test with "git submodule add https://github.com/google/googletest.git". Navigate back to the project directory with "cd .." and run "cmake ." followed by "make" then "./bin/runAllTests". 
  ## Testing

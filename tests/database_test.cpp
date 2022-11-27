@@ -6,3 +6,7 @@
 TEST(databaseTest, testConstructor){
     EXPECT_NO_THROW (Database Database);
 }
+
+TEST(databaseTest, testConstructor2){
+    EXPECT_NO_THROW (Database initDatabase);
+}

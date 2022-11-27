@@ -5,6 +5,7 @@ add_subdirectory(googletest)
 
 add_executable(runAllTests
 	movies_test.cpp
+	filter_test.cpp
 )
 
 target_link_libraries(runAllTests gtest gtest_main)

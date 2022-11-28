@@ -4,24 +4,25 @@
 #include <string>
 
 TEST(databaseTest, testConstructor){
-    EXPECT_NO_THROW (Database initDatabase());
+    Database database;
+    EXPECT_NO_THROW (database.initDatabase());
 }
 
 TEST(databaseTest, testConstructor2){
-    EXPECT_NO_THROW (Database Database());
+    EXPECT_NO_THROW (Database database);
 }
 
 TEST(databaseTest, testAddFunction){
-    Database Database();
-    EXPECT_NO_THROW (Database addMovieToList(test, Action, 2011, 120, 8.9));
+    Database database;
+    EXPECT_NO_THROW (database.addMovieToList("test", "Action", 2011, 120, 8.9));
 }
 
 TEST(databaseTest, testDeleteFunction){
-    Database Database();
-    EXPECT_NO_THROW (Database deleteLastMovieFromList());
+    Database database;
+    EXPECT_NO_THROW (database.deleteLastMovieFromList());
 }
 
 TEST(databaseTest, testReturnFunction){
-    Database Database();
-    EXPECT_NO_THROW (Database returnDatabaseList());
+    Database database;
+    EXPECT_NO_THROW (database.returnDatabaseList());
 }

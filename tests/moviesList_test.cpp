@@ -1,52 +1,49 @@
 #include "gtest/gtest.h"
-#include "../header/filter.h"
+#include "../header/movies.h"
 #include "../header/moviesList.h"
 #include <vector>
 #include <string>
 
-TEST(moviesListTest, testConstructor) {
-    EXPECT_NO_THROW (moviesList *aMovieList());
-}
-
 TEST(moviesListTest, testPrintListOfMovies) {
-    moviesList *aMovieList();
+    MoviesList aMovieList;
     EXPECT_NO_THROW (aMovieList.printListOfMovies());
 }
 
-TEST(moviesListTest, testPrintListOfMovies) {
-    moviesList *aMovieList();
-    EXPECT_DEATH (aMovieList.printListOfMovies());
+TEST(moviesListTest, testConstructor) {
+    EXPECT_NO_THROW (MoviesList aMovieList);
 }
 
-TEST(moviesListTest, testConstructor) {
-    EXPECT_NO_THROW (moviesList *aMovieList(listToFilter, "rating"));
+TEST(moviesListTest, testConstructor2) {
+    vector<Movies> listToFilter;
+    EXPECT_NO_THROW (MoviesList aMovieList(listToFilter, "rating"));
 }
 
-TEST(moviesListTest, testConstructor) {
-    EXPECT_NO_THROW (moviesList *aMovieList(listToFilter, "rat"));
+TEST(moviesListTest, testConstructor3) {
+    vector<Movies> listToFilter;
+    EXPECT_NO_THROW (MoviesList aMovieList(listToFilter, "rat"));
 }
 
 TEST(moviesListTest, testGenreFilter) {
-    moviesList *aMovieList;
-    EXPECT_NO_THROW (moviesList *aMovieList.filterByGenre("fantasy"));
+    MoviesList aMovieList;
+    EXPECT_NO_THROW (aMovieList.filterByGenre("fantasy"));
 }
 
-TEST(moviesListTest, testGenreFilter) {
-    moviesList *aMovieList;
-    EXPECT_NO_THROW (moviesList *aMovieList.filterByGenre("fanta"));
-}
-
-TEST(moviesListTest, testNameFilter) {
-    moviesList *aMovieList;
-    EXPECT_NO_THROW (moviesList *aMovieList.filterByName("John Wick"));
+TEST(moviesListTest, testGenreFilter2) {
+    MoviesList aMovieList;
+    EXPECT_NO_THROW (aMovieList.filterByGenre("fanta"));
 }
 
 TEST(moviesListTest, testNameFilter) {
-    moviesList *aMovieList;
-    EXPECT_NO_THROW (moviesList *aMovieList.filterByName("John"));
+    MoviesList aMovieList;
+    EXPECT_NO_THROW (aMovieList.filterByName("John Wick"));
+}
+
+TEST(moviesListTest, testNameFilter2) {
+    MoviesList aMovieList;
+    EXPECT_NO_THROW (aMovieList.filterByName("John"));
 }
 
 TEST(moviesListTest, testReturnMoviesList) {
-    moviesList *aMovieList;
-    EXPECT_NO_THROW (moviesList *aMovieList.returnMoviesList());
+    MoviesList aMovieList;
+    EXPECT_NO_THROW (aMovieList.returnMoviesList());
 }

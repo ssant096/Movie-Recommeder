@@ -4,9 +4,9 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/src")
 add_subdirectory(googletest)
 
 add_executable(runAllTests
+	moviesList_test.cpp
 	movies_test.cpp
 	filter_test.cpp
-	moviesList_test.cpp
 	database_test.cpp
 )
 
